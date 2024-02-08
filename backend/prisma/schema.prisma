@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ChannelStatus {
+  Public
+  Private
+  Protected
+}
+
+model User {
+  id             Int       @id @default(autoincrement())
+  username       String    @unique
+  password       String
+  games          Int
+  mmr            Int
+  images         Image[]
+  ft_login       String?   @unique
+  date           DateTime  @default(now())
+  wins           Match[]   @relation("winner")
+  loses          Match[]   @relation("loser")
+  channels       Channel[] @relation("channel_users")
+  ownedChannels  Channel[] @relation("channel_owner")
+  bannedChannels Channel[] @relation("channel_banned")
+  adminChannels  Channel[] @relation("channel_admins")
+  invitedChannels  Channel[] @relation("channel_invited")
+  posts          Post[]
+  blocked        User[]  @relation("blocked")
+  blockedBy      User[]  @relation("blocked")
+  friends        User[]  @relation("friends")
+  friendOf       User[]  @relation("friends")
+  pendingFriends User[]  @relation("pending")
+  requestFriends User[]  @relation("pending")
+  TwoFA          Boolean @default(false)
+  SentDM DirectMessage[] @relation("SentDM")
+  RecvDM DirectMessage[] @relation("RecvDM")
+}
+
+model Image {
+  id             Int     @id @default(autoincrement())
+  path           String
+  date           DateTime   @default(now())
+  lastuse        DateTime   @default(now())
+  user           User   @relation(fields: [userId], references: [id])
+  userId         Int
+}
+
+model Channel {
+  id          Int    @id @default(autoincrement())
+  name        String @unique
+  ownerId     Int
+  date        DateTime @default(now())
+  owner       User   @relation("channel_owner", fields: [ownerId], references: [id], onDelete: Cascade)
+  banned      User[] @relation("channel_banned")
+  admins      User[] @relation("channel_admins")
+  users       User[] @relation("channel_users")
+  invited     User[] @relation("channel_invited")
+  posts       Post[]
+  status      ChannelStatus
+  password    String
+}
+
+model Match {
+  id          Int      @id @default(autoincrement())
+  winner      User     @relation(name: "winner", fields: [winnerId], references: [id], onDelete: Cascade)
+  winnerId    Int
+  winnerScore Int
+  loser       User     @relation(name: "loser", fields: [loserId], references: [id], onDelete: Cascade)
+  loserId     Int
+  loserScore  Int
+  date        DateTime @default(now())
+  ranked      Boolean
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  content   String
+  date      DateTime @default(now())
+  author    User    @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId  Int
+  channel   Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  channelId Int
+}
+
+model DirectMessage {
+  id          Int   @id @default(autoincrement())
+  date        DateTime @default(now())
+  content     String
+  senderId    Int
+  receiverId  Int
+  sender      User  @relation("SentDM", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver    User  @relation("RecvDM", fields: [receiverId], references: [id], onDelete: Cascade)
+}

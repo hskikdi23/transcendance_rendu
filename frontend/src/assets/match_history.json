@@ -1,0 +1,172 @@
+[
+    {
+      "id": 1,
+      "winner": {
+        "id": 1,
+        "name": "username"
+      },
+      "winnerId": 1,
+      "winnerScore": 3,
+      "loser": {
+        "id": 2,
+        "name": "Bob"
+      },
+      "loserId": 2,
+      "loserScore": 2,
+      "date": "2023-03-20T15:30:00Z",
+      "ranked": true
+    },
+    {
+      "id": 2,
+      "winner": {
+        "id": 1,
+        "name": "username"
+      },
+      "winnerId": 1,
+      "winnerScore": 2,
+      "loser": {
+        "id": 4,
+        "name": "David"
+      },
+      "loserId": 4,
+      "loserScore": 1,
+      "date": "2023-03-19T10:15:00Z",
+      "ranked": false
+    },
+    {
+      "id": 3,
+      "winner": {
+        "id": 3,
+        "name": "Charlie"
+      },
+      "winnerId": 3,
+      "winnerScore": 3,
+      "loser": {
+        "id": 1,
+        "name": "username"
+      },
+      "loserId": 1,
+      "loserScore": 2,
+      "date": "2023-03-18T18:45:00Z",
+      "ranked": true
+    },
+    {
+      "id": 4,
+      "winner": {
+        "id": 1,
+        "name": "username"
+      },
+      "winnerId": 1,
+      "winnerScore": 2,
+      "loser": {
+        "id": 3,
+        "name": "Charlie"
+      },
+      "loserId": 3,
+      "loserScore": 0,
+      "date": "2023-03-17T14:00:00Z",
+      "ranked": true
+    },
+    {
+      "id": 5,
+      "winner": {
+        "id": 1,
+        "name": "username"
+      },
+      "winnerId": 1,
+      "winnerScore": 3,
+      "loser": {
+        "id": 4,
+        "name": "David"
+      },
+      "loserId": 4,
+      "loserScore": 1,
+      "date": "2023-03-16T11:30:00Z",
+      "ranked": false
+    },
+    {
+      "id": 6,
+      "winner": {
+        "id": 1,
+        "name": "username"
+      },
+      "winnerId": 1,
+      "winnerScore": 2,
+      "loser": {
+        "id": 3,
+        "name": "Charlie"
+      },
+      "loserId": 3,
+      "loserScore": 0,
+      "date": "2023-03-15T09:00:00Z",
+      "ranked": false
+    },
+    {
+        "id": 1,
+        "winner": {
+            "id": 2,
+            "name": "John"
+        },
+        "winnerId": 2,
+        "winnerScore": 3,
+        "loser": {
+            "id": 1,
+            "name": "username"
+        },
+        "loserId": 1,
+        "loserScore": 1,
+        "date": "2023-03-20T15:30:00Z",
+        "ranked": true
+    },
+    {
+        "id": 2,
+        "winner": {
+            "id": 3,
+            "name": "Sarah"
+        },
+        "winnerId": 3,
+        "winnerScore": 2,
+        "loser": {
+            "id": 1,
+            "name": "username"
+        },
+        "loserId": 1,
+        "loserScore": 1,
+        "date": "2023-03-19T10:15:00Z",
+        "ranked": false
+    },
+    {
+        "id": 3,
+        "winner": {
+            "id": 1,
+            "name": "username"
+        },
+        "winnerId": 1,
+        "winnerScore": 3,
+        "loser": {
+            "id": 4,
+            "name": "David"
+        },
+        "loserId": 4,
+        "loserScore": 0,
+        "date": "2023-03-18T18:45:00Z",
+        "ranked": true
+    },
+    {
+        "id": 4,
+        "winner": {
+            "id": 1,
+            "name": "username"
+        },
+        "winnerId": 1,
+        "winnerScore": 2,
+        "loser": {
+            "id": 3,
+            "name": "Sarah"
+        },
+        "loserId": 3,
+        "loserScore": 1,
+        "date": "2023-03-17T14:00:00Z",
+        "ranked": true
+    }   
+]  

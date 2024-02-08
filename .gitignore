@@ -1,0 +1,15 @@
+# backend
+backend/prisma/migrations/*
+backend/dist
+
+# frontend
+frontend/public/build
+
+# global
+**/node_modules
+**/logs
+*.log
+.env
+
+# 42
+.nfs*
